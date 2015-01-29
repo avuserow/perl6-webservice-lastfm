@@ -1,3 +1,3 @@
 # NAME
 
-Webservice::Lastfm - interact with last.fm's API
+Webservice::Lastfm - interact with Last.fm's API
