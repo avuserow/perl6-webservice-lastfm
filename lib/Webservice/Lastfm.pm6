@@ -10,13 +10,13 @@ class X::Webservice::Lastfm is Exception {
 	has $.code;
 	has $.text;
 	method message() {
-		"LastFM API error $.code: $.text"
+		"Last.fm API error $.code: $.text"
 	}
 }
 
 class Webservice::Lastfm {
-	has $.api_key;
-	has $.api_secret;
+	has $.api-key;
+	has $.api-secret;
 
 	has $.endpoint = 'http://ws.audioscrobbler.com/2.0/';
 
@@ -27,7 +27,7 @@ class Webservice::Lastfm {
 	method !expand-params($method, %args is rw) {
 		%args<method> = $method;
 		%args<format> = 'json';
-		%args<api_key> = $.api_key;
+		%args<api_key> = $.api-key;
 	}
 
 	#= Convert a hash to a query-string-like format (k=v&k2=v2)
@@ -39,7 +39,7 @@ class Webservice::Lastfm {
 
 	my sub check-errors($result) {
 		if $result<error> {
-			X::Webservice::LastFM.new(
+			X::Webservice::Lastfm.new(
 				code => $result<error>,
 				text => $result<message>,
 			).throw;
@@ -52,7 +52,7 @@ class Webservice::Lastfm {
 			next if $k eq 'format';
 			$raw ~= "$k%args{$k}";
 		}
-		$raw ~= $.api_secret;
+		$raw ~= $.api-secret;
 		return Digest::MD5.md5_hex($raw);
 	}
 
