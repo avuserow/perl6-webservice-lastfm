@@ -1,11 +1,11 @@
 # NAME
 
-Webservice::Lastfm - interact with Last.fm's API
+WebService::Lastfm - interact with Last.fm's API
 
 # SYNOPSIS
 
 ```perl6
-my $lastfm = Webservice::Lastfm.new(:api-key<1234>, :api-secret<music>);
+my $lastfm = WebService::Lastfm.new(:api-key<1234>, :api-secret<music>);
 
 # Read request
 say $lastfm.request('user.getInfo', :user<avuserow>);
@@ -42,7 +42,7 @@ which is "scrobbling" (track.scrobble).
 
 # EXCEPTIONS
 
-X::Webservice::Lastfm is thrown on any error responses, with the decoded error
+X::WebService::Lastfm is thrown on any error responses, with the decoded error
 message from Last.fm. Check the method's documentation (or the API
 documentation overall) for the meaning of the code.
 

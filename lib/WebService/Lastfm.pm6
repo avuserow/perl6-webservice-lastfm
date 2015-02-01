@@ -6,7 +6,7 @@ use LWP::Simple;
 use URI::Encode;
 # use HTTP::UserAgent
 
-class X::Webservice::Lastfm is Exception {
+class X::WebService::Lastfm is Exception {
 	has $.code;
 	has $.text;
 	method message() {
@@ -14,7 +14,7 @@ class X::Webservice::Lastfm is Exception {
 	}
 }
 
-class Webservice::Lastfm {
+class WebService::Lastfm {
 	has $.api-key;
 	has $.api-secret;
 
@@ -39,7 +39,7 @@ class Webservice::Lastfm {
 
 	my sub check-errors($result) {
 		if $result<error> {
-			X::Webservice::Lastfm.new(
+			X::WebService::Lastfm.new(
 				code => $result<error>,
 				text => $result<message>,
 			).throw;
