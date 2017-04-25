@@ -5,7 +5,7 @@
 	"description" : "interact with the Last.fm API",
 	"author" : "Adrian Kreher",
 	"provides" : {
-		"WebService::Lastfm" : "lib/WebService/Lastfm.pm"
+		"WebService::Lastfm" : "lib/WebService/Lastfm.pm6"
 	},
 	"depends" : [ "JSON::Tiny", "Digest::MD5", "LWP::Simple", "URI::Encode" ],
 	"source-url" : "git://github.com/avuserow/perl6-webservice-lastfm.git"
